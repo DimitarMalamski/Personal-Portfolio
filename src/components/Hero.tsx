@@ -1,28 +1,29 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { animateHeroExit } from "@/animations/heroAnimations";
+import { initHeroParallax } from "@/animations/heroParallax";
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
   const blobRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!blobRef.current) return;
+    if (!heroRef.current || !blobRef.current) return;
 
-      const { innerWidth, innerHeight } = window;
+    animateHeroExit(heroRef.current);
+    const cleanupParallax = initHeroParallax(blobRef.current);
 
-      const x = (e.clientX / innerWidth - 0.5) * 40;
-      const y = (e.clientY / innerHeight - 0.5) * 40;
-
-      blobRef.current.style.transform = `translate(${x}px, ${y}px)`;
+    return () => {
+      cleanupParallax();
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       <div
         ref={blobRef}
         className="absolute w-125 h-125 bg-linear-to-r from-blue-500 to-purple-500 opacity-30 blur-3xl rounded-full transition-transform duration-300"
