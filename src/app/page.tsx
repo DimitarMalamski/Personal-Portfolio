@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Projects />
+      <div className="max-w-7xl mx-auto">
+        <Projects />
+      </div>
     </main>
   );
 }
