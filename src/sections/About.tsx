@@ -1,11 +1,11 @@
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 max-w-4xl mx-auto">
+    <section id="about" className="py-24 sm:py-32 px-6 max-w-4xl mx-auto">
       <h2 className="text-4xl font-bold tracking-tight mb-12 text-center">
         About me
       </h2>
 
-      <div className="text-lg text-gray-600 leading-relaxed space-y-6">
+      <div className="text-base sm:text-lg text-gray-600 leading-relaxed space-y-6">
         <p>
           I’m a full-stack software engineering student with a strong interest
           in building scalable, well-structured web applications.

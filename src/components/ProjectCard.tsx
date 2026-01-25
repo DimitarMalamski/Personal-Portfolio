@@ -11,7 +11,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
     return (
       <div
         ref={ref}
-        className="border rounded-xl p-6 hover:-translate-y-1.5 transition-transform duration-300 ease-out hover:shadow-xl"
+        className="border rounded-xl p-6 sm:hover:-translate-y-1.5 transition-transform duration-300 ease-out hover:shadow-xl"
       >
         <h3 className="text-2xl font-semibold mb-2 tracking-tight">{title}</h3>
 

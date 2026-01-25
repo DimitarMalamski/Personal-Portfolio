@@ -1,4 +1,6 @@
 export function initHeroParallax(blob: HTMLDivElement, strength = 40) {
+  if ("ontouchstart" in window) return () => {};
+
   const handleMouseMove = (e: MouseEvent) => {
     const { innerWidth, innerHeight } = window;
 

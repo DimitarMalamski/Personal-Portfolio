@@ -30,15 +30,15 @@ export default function Hero() {
       />
 
       <div className="relative z-10 text-center px-6">
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
           Full-stack software engineer
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl sm:max-w-2xl mx-auto mb-10">
           I build scalable web applications with modern technologies.
         </p>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button className="px-6 py-3 rounded-lg bg-black text-white transition-transform hover:-translate-y-1 hover:shadow-lg">
             View Projects
           </button>

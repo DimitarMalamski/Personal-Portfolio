@@ -23,13 +23,13 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="py-32 px-6 max-w-6xl mx-auto"
+      className="py-24 sm:py-32 px-6 max-w-6xl mx-auto"
     >
       <h2 className="text-4xl font-bold tracking-tight mb-16 text-center">
         Projects
       </h2>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
         <ProjectCard
           ref={addCardRef}
           title="CareerPath"
