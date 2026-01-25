@@ -25,7 +25,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
         ref={blobRef}
-        className="absolute w-[500px] h-[500px] bg-gradient-to-r from-blue-500 to-purple-500 opacity-30 blur-3xl rounded-full transition-transform duration-300"
+        className="absolute w-125 h-125 bg-linear-to-r from-blue-500 to-purple-500 opacity-30 blur-3xl rounded-full transition-transform duration-300"
       />
 
       <div className="relative z-10 text-center px-6">
