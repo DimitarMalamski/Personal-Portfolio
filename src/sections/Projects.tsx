@@ -23,7 +23,7 @@ export default function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="py-24 sm:py-32 px-6 max-w-6xl mx-auto"
+      className="scroll-mt-24 py-24 sm:py-32 px-6 max-w-6xl mx-auto"
     >
       <h2 className="text-4xl font-bold tracking-tight mb-16 text-center">
         Projects
