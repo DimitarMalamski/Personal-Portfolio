@@ -1,3 +1,5 @@
+import { GraduationCap, Code, Award } from "lucide-react";
+
 export default function Journey() {
   return (
     <section
@@ -56,19 +58,37 @@ export default function Journey() {
               type: "milestone",
             },
           ].map((item) => {
-            const dotColor =
+            const iconConfig =
               item.type === "education"
-                ? "bg-[var(--olive)]"
+                ? {
+                    Icon: GraduationCap,
+                    bg: "bg-[var(--olive)]",
+                  }
                 : item.type === "project"
-                  ? "bg-[var(--amber)]"
-                  : "bg-[var(--burnt)]";
+                  ? {
+                      Icon: Code,
+                      bg: "bg-[var(--amber)]",
+                    }
+                  : {
+                      Icon: Award,
+                      bg: "bg-[var(--burnt)]",
+                    };
 
             return (
               <div key={item.title} className="relative">
                 <div
                   aria-hidden
-                  className={`w-3 h-3 rounded-full mb-6 ${dotColor}`}
-                />
+                  className={`
+    w-12 h-12
+    rounded-full
+    flex items-center justify-center
+    ${iconConfig.bg}
+    mb-6
+    shadow-sm
+  `}
+                >
+                  <iconConfig.Icon className="w-6 h-6 text-[var(--cream)]" />
+                </div>
 
                 <span className="text-sm text-[var(--amber)]">{item.year}</span>
 
@@ -81,6 +101,8 @@ export default function Journey() {
             );
           })}
         </div>
+
+        <div className="mt-16 h-px w-full bg-[var(--forest)]/15" />
 
         <div className="mt-16 flex justify-center">
           <ul className="flex items-center gap-8 text-sm text-[var(--forest)]/80">
