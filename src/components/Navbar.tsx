@@ -10,6 +10,9 @@ export default function Navbar() {
           <a href="#projects" className="hover:text-[var(--forest)]">
             Projects
           </a>
+          <a href="#journey" className="hover:text-[var(--forest)]">
+            Journey
+          </a>
           <a href="#about" className="hover:text-[var(--forest)]">
             About
           </a>
