@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="max-w-7xl mx-auto">
-        <Projects />
-      </div>
+      <Projects />
       <About />
     </main>
   );
