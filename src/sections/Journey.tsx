@@ -4,7 +4,7 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="py-24 sm:py-32 px-6 max-w-6xl mx-auto bg-[var(--cream)]"
+      className="py-24 sm:py-32 px-6 max-w-6xl mx-auto bg-[var(--forest)/4]"
     >
       <div className="max-w-3xl mb-16">
         <span className="text-sm uppercase tracking-wider text-[var(--amber)]">
