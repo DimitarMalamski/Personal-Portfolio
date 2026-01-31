@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--cream)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--bg-hero)]">
       <div className="absolute w-125 h-125 bg-linear-to-r from-[var(--olive)] via-[var(--amber)] to-[var(--burnt)] opacity-25 blur-3xl rounded-full" />
 
       <div className="relative z-10 text-center px-6">

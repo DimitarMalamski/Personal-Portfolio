@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 py-24 sm:py-32 bg-[var(--cream)]"
+      className="scroll-mt-24 py-24 sm:py-32 bg-[var(--bg-projects)]"
     >
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold tracking-tight mb-16 text-center text-[var(--forest)]">

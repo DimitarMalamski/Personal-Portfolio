@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[var(--cream)]">
+    <section id="about" className="py-24 sm:py-32 bg-[var(--bg-about)]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <span className="text-sm uppercase tracking-wider text-[var(--amber)]">

@@ -3,11 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
   --olive: #606c38;
   --forest: #283618;
   --cream: #fefae0;
   --amber: #dda15e;
   --burnt: #bc6c25;
+
+  --bg-hero: #fefae0;
+  --bg-projects: #fbf6e8;
+  --bg-journey: #f3f7f1;
+  --bg-about: #f8f5ec;
+  --bg-contact: #283618;
 }
 
 @theme inline {
