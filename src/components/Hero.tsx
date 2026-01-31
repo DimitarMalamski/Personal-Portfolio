@@ -1,6 +1,9 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[var(--bg-hero)]">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <div className="scroll-cue">↓</div>
+      </div>
       <div
         aria-hidden
         className="
@@ -23,6 +26,26 @@ export default function Hero() {
               Dimitar Malamski
             </h1>
 
+            <div className="flex items-center gap-2 text-sm text-[var(--forest)]/60 mb-6">
+              <svg
+                aria-hidden
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"
+                />
+                <circle cx="12" cy="11" r="2.5" />
+              </svg>
+
+              <span>Eindhoven, The Netherlands</span>
+            </div>
+
             <p className="text-lg md:text-xl leading-relaxed text-[var(--forest)]/65 mb-10">
               I build scalable web applications with modern technologies and a
               focus on clarity, structure, and long-term maintainability.
@@ -41,6 +64,28 @@ export default function Hero() {
 
           <div className="hidden lg:flex justify-end">
             <div className="relative">
+              <div
+                aria-hidden
+                className="
+    absolute -top-6 -right-10
+    w-[260px] h-[260px]
+    rounded-3xl
+    border border-[var(--forest)]/10
+    rotate-12
+  "
+              />
+
+              <div
+                aria-hidden
+                className="
+    absolute top-12 right-4
+    w-[220px] h-[220px]
+    rounded-3xl
+    border border-[var(--olive)]/15
+    -rotate-6
+  "
+              />
+
               <div
                 aria-hidden
                 className="
