@@ -1,25 +1,77 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--bg-hero)]">
-      <div className="absolute w-125 h-125 bg-linear-to-r from-[var(--olive)] via-[var(--amber)] to-[var(--burnt)] opacity-25 blur-3xl rounded-full" />
+    <section className="relative min-h-screen overflow-hidden bg-[var(--bg-hero)]">
+      <div
+        aria-hidden
+        className="
+          absolute top-[-20%] left-[10%]
+          w-[800px] h-[800px]
+          rounded-full
+          bg-[radial-gradient(circle_at_center,rgba(40,54,24,0.12),transparent_65%)]
+          blur-3xl
+        "
+      />
 
-      <div className="relative z-10 text-center px-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-[var(--forest)]">
-          Full-stack software engineer
-        </h1>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 min-h-screen flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+          <div className="max-w-2xl">
+            <span className="text-sm uppercase tracking-widest text-[var(--forest)]/60">
+              Full-stack developer
+            </span>
 
-        <p className="text-lg md:text-xl leading-relaxed text-[var(--forest)]/70 max-w-xl sm:max-w-2xl mx-auto mb-10">
-          I build scalable web applications with modern technologies.
-        </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight mt-4 mb-6 text-[var(--forest)]">
+              Dimitar Malamski
+            </h1>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="px-6 py-3 rounded-lg bg-[var(--forest)] text-[var(--cream)]">
-            View Projects
-          </button>
+            <p className="text-lg md:text-xl leading-relaxed text-[var(--forest)]/65 mb-10">
+              I build scalable web applications with modern technologies and a
+              focus on clarity, structure, and long-term maintainability.
+            </p>
 
-          <button className="px-6 py-3 rounded-lg border border-[var(--forest)] text-[var(--forest)]">
-            Download CV
-          </button>
+            <div className="flex items-center gap-4">
+              <a className="px-6 py-3 rounded-lg bg-[var(--forest)] text-[var(--cream)] font-medium">
+                See my work ↓
+              </a>
+
+              <a className="px-6 py-3 rounded-lg border border-[var(--forest)] text-[var(--forest)] font-medium">
+                Get in touch
+              </a>
+            </div>
+          </div>
+
+          <div className="hidden lg:flex justify-end">
+            <div className="relative">
+              <div
+                aria-hidden
+                className="
+        absolute -inset-4
+        rounded-3xl
+        bg-[var(--forest)]/5
+      "
+              />
+
+              <div
+                className="
+        relative
+        w-[320px] xl:w-[360px]
+        aspect-[3/4]
+        rounded-2xl
+        overflow-hidden
+      "
+              >
+                <img
+                  src="/me.jpg"
+                  alt="Portrait of Dimitar Malamski"
+                  className="
+          w-full h-full object-cover
+          saturate-[0.9]
+          contrast-[0.95]
+          grayscale-[5%]
+        "
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
