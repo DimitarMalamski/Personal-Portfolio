@@ -5,6 +5,9 @@ type FeaturedProjectProps = {
   tech: string[];
 };
 
+const cardClasses =
+  "relative mx-auto max-w-3xl rounded-3xl bg-[var(--cream)] px-12 py-14 text-center";
+
 export default function FeaturedProject({
   category,
   title,
@@ -12,17 +15,7 @@ export default function FeaturedProject({
   tech,
 }: FeaturedProjectProps) {
   return (
-    <div
-      className="
-        relative
-        mx-auto
-        max-w-3xl
-        rounded-3xl
-        bg-[var(--cream)]
-        px-12 py-14
-        text-center
-      "
-    >
+    <div className={cardClasses}>
       <div className="relative z-10">
         <span className="text-xs uppercase tracking-widest text-[var(--forest)]/50">
           {category}

@@ -1,4 +1,4 @@
-import FeaturedProject from "@/components/FeaturedProject";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
 
 export default function Projects() {
   return (
@@ -22,12 +22,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <FeaturedProject
-          category="Full-stack"
-          title="TaskFlow"
-          description="Built to understand how teams coordinate work. Features include real-time collaboration using WebSockets, a custom priority algorithm, and a clean API design that handles complex state gracefully."
-          tech={["React", "Node.js", "PostgreSQL", "WebSocket", "Redis"]}
-        />
+        <ProjectsCarousel />
       </div>
     </section>
   );
