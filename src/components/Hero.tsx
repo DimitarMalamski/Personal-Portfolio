@@ -46,7 +46,7 @@ export default function Hero() {
               <span>Eindhoven, The Netherlands</span>
             </div>
 
-            <p className="text-lg md:text-xl leading-relaxed text-[var(--forest)]/65 mb-10">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-[var(--forest)]/65 mb-10">
               I build scalable web applications with modern technologies and a
               focus on clarity, structure, and long-term maintainability.
             </p>
