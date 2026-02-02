@@ -47,6 +47,20 @@ export default function ProjectsCarousel() {
 
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      pause();
+      setCurrentIndex((prev) => (prev + 1) % projects.length);
+    }
+
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      pause();
+      setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    }
+  };
+
   useEffect(() => {
     if (isPaused) return;
 
@@ -77,11 +91,13 @@ export default function ProjectsCarousel() {
 
   return (
     <div
-      className="max-w-3xl mx-auto"
+      className="max-w-3xl mx-auto outline-none"
+      tabIndex={0}
       onMouseEnter={pause}
       onMouseLeave={resumeWithDelay}
       onFocus={pause}
       onBlur={resumeWithDelay}
+      onKeyDown={handleKeyDown}
     >
       <div className="relative min-h-[360px] sm:min-h-[320px] flex items-center justify-center">
         <div className="w-full max-w-3xl min-h-[320px] flex items-center">
