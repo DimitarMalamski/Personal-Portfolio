@@ -27,7 +27,7 @@ const RESUME_DELAY = 2000;
 const slideVariants = {
   initial: {
     opacity: 0,
-    y: 20,
+    y: 12,
   },
   animate: {
     opacity: 1,
@@ -35,7 +35,7 @@ const slideVariants = {
   },
   exit: {
     opacity: 0,
-    y: -10,
+    y: -6,
   },
 };
 
@@ -91,7 +91,7 @@ export default function ProjectsCarousel() {
 
   return (
     <div
-      className="max-w-3xl mx-auto outline-none"
+      className="max-w-3xl mx-auto focus:outline-none"
       tabIndex={0}
       onMouseEnter={pause}
       onMouseLeave={resumeWithDelay}
@@ -134,8 +134,8 @@ export default function ProjectsCarousel() {
               h-2 rounded-full transition-all duration-300
               ${
                 index === currentIndex
-                  ? "w-6 bg-[var(--forest)]/70"
-                  : "w-2 bg-[var(--forest)]/20"
+                  ? "h-3 w-8 sm:h-2 sm:w-6 bg-[var(--forest)]/70"
+                  : "h-3 w-3 sm:h-2 sm:w-2 bg-[var(--forest)]/20"
               }
             `}
           />

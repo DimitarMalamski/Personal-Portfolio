@@ -6,7 +6,7 @@ type FeaturedProjectProps = {
 };
 
 const cardClasses =
-  "relative mx-auto max-w-3xl rounded-3xl bg-[var(--cream)] px-12 py-14 text-center";
+  "relative mx-auto max-w-3xl rounded-3xl bg-[var(--cream)] px-6 py-10 sm:px-12 sm:py-14 text-center";
 
 export default function FeaturedProject({
   category,
@@ -21,13 +21,13 @@ export default function FeaturedProject({
           {category}
         </span>
 
-        <h3 className="serif text-3xl sm:text-4xl font-semibold tracking-tight mt-5 mb-6 text-[var(--forest)]">
+        <h3 className="serif text-2xl sm:text-4xl font-semibold tracking-tight mt-5 mb-6 text-[var(--forest)]">
           {title}
         </h3>
 
         <div className="mx-auto mb-8 h-px w-12 bg-[var(--forest)]/15" />
 
-        <p className="max-w-xl mx-auto text-lg leading-relaxed text-[var(--forest)]/70 mb-12">
+        <p className="max-w-xl mx-auto text-base sm:text-lg leading-relaxed text-[var(--forest)]/70 mb-10 sm:mb-12">
           {description}
         </p>
 
@@ -45,11 +45,11 @@ export default function FeaturedProject({
         </div>
 
         <div className="flex items-center justify-center gap-8">
-          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 hover:text-[var(--forest)]">
+          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 hover:text-[var(--forest)] focus:outline-none focus-visible:underline">
             Source
           </a>
 
-          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline">
+          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline focus:outline-none focus-visible:underline">
             View project →
           </a>
         </div>
