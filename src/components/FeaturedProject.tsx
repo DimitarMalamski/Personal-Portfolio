@@ -14,41 +14,52 @@ export default function FeaturedProject({
   return (
     <div
       className="
+        relative
         mx-auto
         max-w-3xl
-        rounded-2xl
+        rounded-3xl
         bg-[var(--cream)]
-        border border-[var(--forest)]/10
-        px-10 py-12
+        px-12 py-14
         text-center
       "
     >
-      <span className="text-sm uppercase tracking-widest text-[var(--forest)]/60">
-        {category}
-      </span>
+      <div className="relative z-10">
+        <span className="text-xs uppercase tracking-widest text-[var(--forest)]/50">
+          {category}
+        </span>
 
-      <h3 className="text-3xl sm:text-4xl font-semibold tracking-tight mt-4 mb-6 text-[var(--forest)]">
-        {title}
-      </h3>
+        <h3 className="serif text-3xl sm:text-4xl font-semibold tracking-tight mt-5 mb-6 text-[var(--forest)]">
+          {title}
+        </h3>
 
-      <p className="text-lg leading-relaxed text-[var(--forest)]/70 mb-10">
-        {description}
-      </p>
+        <div className="mx-auto mb-8 h-px w-12 bg-[var(--forest)]/15" />
 
-      <div className="flex flex-wrap justify-center gap-4 text-sm text-[var(--forest)]/60 mb-10">
-        {tech.map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </div>
+        <p className="max-w-xl mx-auto text-lg leading-relaxed text-[var(--forest)]/70 mb-12">
+          {description}
+        </p>
 
-      <div className="flex items-center justify-center gap-6">
-        <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/70 hover:text-[var(--forest)]">
-          Source
-        </a>
+        <div className="serif flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-[var(--forest)]/60 mb-14">
+          {tech.flatMap((item, i) => [
+            <span key={item}>{item}</span>,
+            i < tech.length - 1 && (
+              <span
+                key={`${item}-dot`}
+                aria-hidden
+                className="h-1 w-1 rounded-full bg-[var(--forest)]/25"
+              />
+            ),
+          ])}
+        </div>
 
-        <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline">
-          View project →
-        </a>
+        <div className="flex items-center justify-center gap-8">
+          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 hover:text-[var(--forest)]">
+            Source
+          </a>
+
+          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline">
+            View project →
+          </a>
+        </div>
       </div>
     </div>
   );

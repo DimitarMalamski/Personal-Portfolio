@@ -69,3 +69,7 @@ html {
     animation: none;
   }
 }
+
+.serif {
+  font-family: "Times New Roman", Times, serif;
+}
