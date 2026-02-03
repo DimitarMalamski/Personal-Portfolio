@@ -135,7 +135,7 @@ export default function Contact() {
                 }
                 variants={fadeUp}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group block p-6 rounded-xl border border-[var(--cream)]/10 bg-[var(--forest)]/60 backdrop-blur hover:border-[var(--amber)]/40 transition-all duration-300"
+                className="group block p-6 rounded-xl border border-[var(--cream)]/10 bg-[var(--forest)]/60 backdrop-blur transition-all duration-300 hover:border-[var(--amber)]/50 hover:shadow-[0_0_0_1px_var(--amber),0_10px_30px_-10px_rgba(221,161,94,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--forest)]"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-[var(--amber)]/15 text-[var(--amber)]">
