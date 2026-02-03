@@ -16,6 +16,9 @@ export default function Navbar() {
           <a href="#about" className="hover:text-[var(--forest)]">
             About
           </a>
+          <a href="#contact" className="hover:text-[var(--forest)]">
+            Contact
+          </a>
         </div>
       </div>
     </nav>

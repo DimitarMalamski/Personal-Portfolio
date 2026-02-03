@@ -1,4 +1,7 @@
+"use client";
+
 import { Mail, Linkedin, Github, FileText, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const contactOptions = [
   {
@@ -39,12 +42,29 @@ const contactOptions = [
   },
 ];
 
+/* ───────────────── animations ───────────────── */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
 export default function Contact() {
   return (
     <section
       id="contact"
       className="relative py-28 md:py-36 bg-[var(--forest)] text-[var(--cream)] overflow-hidden"
     >
+      {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
         <svg
           className="w-full h-full"
@@ -69,7 +89,15 @@ export default function Contact() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        {/* Header */}
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-20"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <span className="block text-sm uppercase tracking-widest text-[var(--amber)] mb-4">
             Get in touch
           </span>
@@ -82,14 +110,21 @@ export default function Contact() {
             I’m currently seeking software engineering internships. If you’re
             working on something interesting, I’d love to hear about it.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-9 max-w-4xl mx-auto">
+        {/* Contact cards */}
+        <motion.div
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {contactOptions.map((option) => {
             const Icon = option.icon;
 
             return (
-              <a
+              <motion.a
                 key={option.id}
                 href={option.href}
                 target={option.href.startsWith("http") ? "_blank" : undefined}
@@ -98,11 +133,9 @@ export default function Contact() {
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className="group block p-6 rounded-xl
-                           border border-[var(--cream)]/10
-                           bg-[var(--forest)]/60 backdrop-blur
-                           hover:border-[var(--amber)]/40
-                           transition-all duration-300"
+                variants={fadeUp}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="group block p-6 rounded-xl border border-[var(--cream)]/10 bg-[var(--forest)]/60 backdrop-blur hover:border-[var(--amber)]/40 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-[var(--amber)]/15 text-[var(--amber)]">
@@ -113,13 +146,7 @@ export default function Contact() {
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-lg font-semibold">{option.title}</h3>
 
-                      <ArrowUpRight
-                        className="w-4 h-4 text-[var(--amber)]
-                                   opacity-0 -translate-x-1
-                                   group-hover:opacity-100
-                                   group-hover:translate-x-0
-                                   transition-all"
-                      />
+                      <ArrowUpRight className="w-4 h-4 text-[var(--amber)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </div>
 
                     <p className="text-sm text-[var(--cream)]/70 mb-3">
@@ -131,16 +158,22 @@ export default function Contact() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="mt-20 pt-8 border-t border-[var(--cream)]/10 text-center">
+        <motion.div
+          className="mt-20 pt-8 border-t border-[var(--cream)]/10 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <p className="text-sm text-[var(--cream)]/50">
             Designed and built with intention · © 2026 Dimitar Malamski
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
