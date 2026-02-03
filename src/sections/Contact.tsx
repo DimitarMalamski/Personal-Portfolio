@@ -2,6 +2,7 @@
 
 import { Mail, Linkedin, Github, FileText, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const contactOptions = [
   {
@@ -59,12 +60,21 @@ const stagger = {
 };
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {}
+  };
+
   return (
     <section
       id="contact"
       className="relative py-28 md:py-36 bg-[var(--forest)] text-[var(--cream)] overflow-hidden"
     >
-      {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
         <svg
           className="w-full h-full"
@@ -107,12 +117,11 @@ export default function Contact() {
           </h2>
 
           <p className="text-lg text-[var(--cream)]/70 max-w-prose mx-auto">
-            I’m currently seeking software engineering internships. If you’re
-            working on something interesting, I’d love to hear about it.
+            I’m open to software engineering opportunities. If you’re working on
+            something interesting, I’d love to hear about it.
           </p>
         </motion.div>
 
-        {/* Contact cards */}
         <motion.div
           className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
           variants={stagger}
@@ -122,6 +131,45 @@ export default function Contact() {
         >
           {contactOptions.map((option) => {
             const Icon = option.icon;
+
+            if (option.id === "email") {
+              return (
+                <motion.button
+                  key={option.id}
+                  type="button"
+                  onClick={() => handleCopyEmail(option.action)}
+                  variants={fadeUp}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="group w-full text-left p-6 rounded-xl border border-[var(--cream)]/10 bg-[var(--forest)]/60 backdrop-blur transition-all duration-300 hover:border-[var(--amber)]/50 hover:shadow-[0_0_0_1px_var(--amber),0_10px_30px_-10px_rgba(221,161,94,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--forest)]"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-lg bg-[var(--amber)]/15 text-[var(--amber)]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg font-semibold">
+                          {option.title}
+                        </h3>
+
+                        <span className="text-sm font-semibold text-[var(--amber)] transition-opacity">
+                          {copied ? "✓" : ""}
+                        </span>
+                      </div>
+
+                      <p className="text-sm text-[var(--cream)]/70 mb-3">
+                        {option.description}
+                      </p>
+
+                      <span className="text-sm font-mono text-[var(--amber)]">
+                        {copied ? "Copied ✓" : option.action}
+                      </span>
+                    </div>
+                  </div>
+                </motion.button>
+              );
+            }
 
             return (
               <motion.a
@@ -175,6 +223,20 @@ export default function Contact() {
           </p>
         </motion.div>
       </div>
+
+      {copied && (
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 8 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+        >
+          <div className="px-4 py-2 rounded-full bg-[var(--cream)] text-[var(--forest)] text-sm shadow-lg">
+            Email copied to clipboard
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
