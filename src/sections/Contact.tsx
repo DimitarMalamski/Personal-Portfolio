@@ -45,7 +45,7 @@ const contactOptions = [
 /* ───────────────── animations ───────────────── */
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -106,7 +106,7 @@ export default function Contact() {
             Let’s build something together
           </h2>
 
-          <p className="text-lg text-[var(--cream)]/70">
+          <p className="text-lg text-[var(--cream)]/70 max-w-prose mx-auto">
             I’m currently seeking software engineering internships. If you’re
             working on something interesting, I’d love to hear about it.
           </p>
