@@ -3,7 +3,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--cream)]/80 backdrop-blur-md border-b border-[var(--forest)]/10">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <span className="text-sm font-semibold tracking-tight text-[var(--forest)]">
-          Dimitar
+          DM
         </span>
 
         <div className="flex gap-6 text-sm text-[var(--forest)]/70">
