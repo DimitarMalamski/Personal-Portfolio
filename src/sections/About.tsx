@@ -72,23 +72,24 @@ export default function About() {
       overflow-hidden
     "
             >
-              {/* MAP AREA */}
+              ={" "}
               <div className="relative aspect-[4/3]">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${mapUrl})`,
-                    filter: "grayscale(0.25) contrast(0.9) brightness(1.05)",
+                    filter: "grayscale(0.4) contrast(1.05) brightness(0.92)",
+                    opacity: 0.9,
                   }}
                 />
 
-                {/* Center cross */}
+                <div className="absolute inset-0 bg-[var(--forest)]/5" />
+
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="absolute w-full h-px bg-[var(--forest)]/15" />
                   <div className="absolute h-full w-px bg-[var(--forest)]/15" />
                 </div>
 
-                {/* Location pin */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="relative">
                     <div className="w-3 h-3 rounded-full bg-[var(--burnt)]" />
@@ -96,8 +97,6 @@ export default function About() {
                   </div>
                 </div>
               </div>
-
-              {/* INFO + CTA AREA */}
               <div className="px-8 py-6 text-center bg-[var(--bg-about)]">
                 <h4 className="font-semibold text-[var(--forest)] mb-1">
                   Based in Eindhoven
@@ -113,17 +112,20 @@ export default function About() {
                 <a
                   href="#contact"
                   className="
-          inline-flex items-center justify-center
-          w-full px-6 py-3 rounded-lg
-          bg-[var(--cream)]
-          text-[var(--forest)]
-          font-medium
-          border border-[var(--forest)]/25
-          shadow
-          transition-all
-          hover:shadow-md
-          hover:-translate-y-[1px]
-        "
+                    inline-flex items-center justify-center
+                    w-full px-6 py-3 rounded-lg
+                    bg-[var(--cream)]
+                    text-[var(--forest)]
+                    font-medium
+                    border border-[var(--forest)]/25
+                    shadow
+                    transition-all duration-200
+                    hover:bg-[var(--forest)]
+                    hover:text-[var(--cream)]
+                    hover:border-[var(--forest)]
+                    hover:shadow-md
+                    hover:-translate-y-[1px]
+                  "
                 >
                   Let’s connect
                 </a>
