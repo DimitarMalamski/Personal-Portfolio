@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { scrollToSection } from "@/utils/scroll";
 
 const EINDHOVEN = {
   lng: 5.4697,
@@ -130,12 +131,12 @@ export default function About() {
 
                   <div className="w-10 h-px bg-[var(--forest)]/20 mx-auto mb-4" />
 
-                  <a
-                    href="#contact"
+                  <button
+                    onClick={() => scrollToSection("contact")}
                     className="inline-flex items-center justify-center w-full px-6 py-3 rounded-lg bg-[var(--cream)] text-[var(--forest)] font-medium border border-[var(--forest)]/25 shadow transition-all hover:bg-[var(--forest)] hover:text-[var(--cream)] hover:border-[var(--forest)] hover:shadow-md hover:-translate-y-[1px]"
                   >
                     Let’s connect
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
