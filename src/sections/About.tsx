@@ -82,7 +82,6 @@ export default function About() {
           >
             <div className="relative">
               <div className="rounded-2xl bg-[var(--forest)]/4 border border-[var(--forest)]/10 shadow-sm overflow-hidden">
-                ={" "}
                 <div className="relative aspect-[4/3]">
                   <div
                     className="absolute inset-0 bg-cover bg-center"
