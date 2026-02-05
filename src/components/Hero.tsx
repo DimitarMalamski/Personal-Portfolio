@@ -25,7 +25,7 @@ export default function Hero() {
         className="hidden sm:block absolute top-[-20%] left-[10%] w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(40,54,24,0.12),transparent_65%)] blur-3xl"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 min-h-[calc(100vh-4rem)] flex items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 min-h-screen flex items-center pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
           <motion.div
             className="max-w-2xl"
