@@ -1,3 +1,5 @@
+import { Github } from "lucide-react";
+
 type FeaturedProjectProps = {
   category: string;
   title: string;
@@ -45,8 +47,14 @@ export default function FeaturedProject({
         </div>
 
         <div className="flex items-center justify-center gap-8">
-          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 hover:text-[var(--forest)] focus:outline-none focus-visible:underline">
-            Source
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View source code on GitHub"
+            className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 transition-colors hover:text-[var(--forest)]focus:outline-none focus-visible:underline"
+          >
+            <Github className="h-4 w-4" aria-hidden />
+            <span>Source</span>
           </a>
 
           <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline focus:outline-none focus-visible:underline">
