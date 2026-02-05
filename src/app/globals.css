@@ -41,6 +41,20 @@ body {
   scroll-behavior: smooth;
 } */
 
+.mapboxgl-ctrl-group {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.mapboxgl-ctrl button {
+  background-color: var(--cream);
+}
+
+.mapboxgl-ctrl button:hover {
+  background-color: var(--forest);
+  color: var(--cream);
+}
+
 @keyframes scrollHint {
   0% {
     transform: translateY(0);

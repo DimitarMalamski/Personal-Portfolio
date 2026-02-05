@@ -3,12 +3,11 @@
 import { motion } from "framer-motion";
 import { scrollToSection } from "@/utils/scroll";
 
-const EINDHOVEN = {
-  lng: 5.4697,
-  lat: 51.4416,
-};
+import dynamic from "next/dynamic";
 
-const mapUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/${EINDHOVEN.lng},${EINDHOVEN.lat},11,0/800x600?access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`;
+const EindhovenMap = dynamic(() => import("../utils/EindhovenMap"), {
+  ssr: false,
+});
 
 export default function About() {
   return (
@@ -82,42 +81,7 @@ export default function About() {
           >
             <div className="relative">
               <div className="rounded-2xl bg-[var(--forest)]/4 border border-[var(--forest)]/10 shadow-sm overflow-hidden">
-                <div className="relative aspect-[4/3]">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url(${mapUrl})`,
-                      filter: "grayscale(0.4) contrast(1.05) brightness(0.92)",
-                      opacity: 0.9,
-                    }}
-                  />
-
-                  <div className="absolute inset-0 bg-[var(--forest)]/5" />
-
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="absolute w-full h-px bg-[var(--forest)]/15" />
-                    <div className="absolute h-full w-px bg-[var(--forest)]/15" />
-                  </div>
-
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <motion.div
-                      className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                      initial={{ scale: 0.85, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.4,
-                        ease: "easeOut",
-                        delay: 0.4,
-                      }}
-                    >
-                      <div className="relative">
-                        <div className="w-3 h-3 rounded-full bg-[var(--burnt)]" />
-                        <div className="absolute inset-[-10px] rounded-full border border-[var(--burnt)]/40" />
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
+                <EindhovenMap />
                 <div className="px-8 py-6 text-center bg-[var(--bg-about)]">
                   <h4 className="font-semibold text-[var(--forest)] mb-1">
                     Based in Eindhoven
