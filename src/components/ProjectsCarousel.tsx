@@ -2,24 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { projects } from "@/data/projects";
 import FeaturedProject from "@/components/FeaturedProject";
-
-const projects = [
-  {
-    category: "Full-stack",
-    title: "TaskFlow",
-    description:
-      "Built to understand how teams coordinate work. Features include real-time collaboration using WebSockets, a custom priority algorithm, and a clean API design that handles complex state gracefully.",
-    tech: ["React", "Node.js", "PostgreSQL", "WebSocket", "Redis"],
-  },
-  {
-    category: "Developer tools",
-    title: "AuthKit",
-    description:
-      "A lightweight authentication toolkit focused on clarity and security, built to explore token lifecycles, refresh strategies, and API ergonomics.",
-    tech: ["TypeScript", "JWT", "OAuth 2.0", "Node.js"],
-  },
-];
 
 const AUTO_ADVANCE_INTERVAL = 7000;
 const RESUME_DELAY = 2000;
@@ -40,36 +24,45 @@ const slideVariants = {
 };
 
 export default function ProjectsCarousel() {
+  const featuredProjects = projects.filter((p) => p.featured);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const currentProject = projects[currentIndex];
   const shouldReduceMotion = useReducedMotion();
-
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const totalProjects = featuredProjects.length;
+
+  useEffect(() => {
+    if (isPaused || totalProjects === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalProjects);
+    }, AUTO_ADVANCE_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isPaused, totalProjects]);
+
+  if (totalProjects === 0) {
+    return null;
+  }
+
+  const safeIndex = currentIndex % totalProjects;
+  const currentProject = featuredProjects[safeIndex];
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight") {
       e.preventDefault();
       pause();
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
+      setCurrentIndex((prev) => (prev + 1) % totalProjects);
     }
 
     if (e.key === "ArrowLeft") {
       e.preventDefault();
       pause();
-      setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+      setCurrentIndex((prev) => (prev - 1 + totalProjects) % totalProjects);
     }
   };
-
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
-    }, AUTO_ADVANCE_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, [isPaused, projects.length]);
 
   const pause = () => {
     if (resumeTimeoutRef.current) {
@@ -121,7 +114,7 @@ export default function ProjectsCarousel() {
       </div>
 
       <div className="flex items-center justify-center gap-3 mt-12">
-        {projects.map((_, index) => (
+        {featuredProjects.map((_, index) => (
           <button
             key={index}
             onClick={() => {

@@ -1,11 +1,10 @@
 import { Github } from "lucide-react";
+import type { Project } from "@/data/projects";
 
-type FeaturedProjectProps = {
-  category: string;
-  title: string;
-  description: string;
-  tech: string[];
-};
+type FeaturedProjectProps = Pick<
+  Project,
+  "category" | "title" | "description" | "tech" | "links"
+>;
 
 const cardClasses =
   "relative mx-auto max-w-3xl rounded-3xl bg-[var(--cream)] px-6 py-10 sm:px-12 sm:py-14 text-center";
@@ -15,6 +14,7 @@ export default function FeaturedProject({
   title,
   description,
   tech,
+  links,
 }: FeaturedProjectProps) {
   return (
     <div className={cardClasses}>
@@ -47,19 +47,39 @@ export default function FeaturedProject({
         </div>
 
         <div className="flex items-center justify-center gap-8">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View source code on GitHub"
-            className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 transition-colors hover:text-[var(--forest)]focus:outline-none focus-visible:underline"
-          >
-            <Github className="h-4 w-4" aria-hidden />
-            <span>Source</span>
-          </a>
+          {links?.map((link) => {
+            if (link.label === "github") {
+              return (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View source code on GitHub"
+                  className="flex items-center gap-2 text-sm font-medium text-[var(--forest)]/60 transition-colors hover:text-[var(--forest)] focus:outline-none focus-visible:underline"
+                >
+                  <Github className="h-4 w-4" aria-hidden />
+                  <span>Source</span>
+                </a>
+              );
+            }
 
-          <a className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline focus:outline-none focus-visible:underline">
-            View project →
-          </a>
+            if (link.label === "live") {
+              return (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-medium text-[var(--forest)] hover:underline focus:outline-none focus-visible:underline"
+                >
+                  View project →
+                </a>
+              );
+            }
+
+            return null;
+          })}
         </div>
       </div>
     </div>
