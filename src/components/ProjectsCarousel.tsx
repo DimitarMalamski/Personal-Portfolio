@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
 import FeaturedProject from "@/components/FeaturedProject";
 
-const AUTO_ADVANCE_INTERVAL = 7000;
+const AUTO_ADVANCE_INTERVAL = 12000;
 const RESUME_DELAY = 2000;
 
 const slideVariants = {
