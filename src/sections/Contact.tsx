@@ -12,7 +12,7 @@ const contactOptions = [
     description:
       "For project discussions, opportunities, or just to say hi. I typically respond within 24 hours.",
     action: "mitemalamata@gmail.com",
-    href: "mailto:alex@example.com",
+    href: "mailto:mitemalamata@gmail.com",
   },
   {
     id: "linkedin",
@@ -35,11 +35,10 @@ const contactOptions = [
   {
     id: "resume",
     icon: FileText,
-    title: "Download my resume",
-    description:
-      "A comprehensive overview of my experience, education, and technical skills.",
-    action: "Download PDF",
-    href: "/resume.pdf",
+    title: "View my resume",
+    description: "Preview a PDF version of my resume.",
+    action: "Open PDF",
+    href: "/Dimitar_Malamski_CV.pdf",
   },
 ];
 
@@ -175,12 +174,8 @@ export default function Contact() {
               <motion.a
                 key={option.id}
                 href={option.href}
-                target={option.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  option.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={fadeUp}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="group block p-6 rounded-xl border border-[var(--cream)]/10 bg-[var(--forest)]/60 backdrop-blur transition-all duration-300 hover:border-[var(--amber)]/50 hover:shadow-[0_0_0_1px_var(--amber),0_10px_30px_-10px_rgba(221,161,94,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--forest)]"
@@ -190,18 +185,20 @@ export default function Contact() {
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 flex flex-col h-full">
                     <div className="flex items-center justify-between mb-2">
                       <h3 className="text-lg font-semibold">{option.title}</h3>
 
                       <ArrowUpRight className="w-4 h-4 text-[var(--amber)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </div>
 
-                    <p className="text-sm text-[var(--cream)]/70 mb-3">
-                      {option.description}
-                    </p>
+                    <div className="flex-grow">
+                      <p className="text-sm text-[var(--cream)]/70 mb-3">
+                        {option.description}
+                      </p>
+                    </div>
 
-                    <span className="text-sm font-mono text-[var(--amber)]">
+                    <span className="mt-auto text-sm font-mono text-[var(--amber)]">
                       {option.action}
                     </span>
                   </div>
