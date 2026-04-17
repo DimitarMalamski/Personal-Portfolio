@@ -44,10 +44,10 @@ export const projects: Project[] = [
         label: "github",
         url: "https://github.com/DimitarMalamski/CareerPath",
       },
-      // {
-      //   label: "live",
-      //   url: "https://careerpath-ip.com/",
-      // },
+      {
+        label: "live",
+        url: "https://careerpath-ip.com/",
+      },
     ],
   },
   {
