@@ -2,7 +2,7 @@
 
 My personal developer portfolio showcasing selected full-stack projects, engineering philosophy, and professional experience.
 
-🌐 Live: [Here](https://dimitarmalamski.com/)  
+🌐 Live: [Here](https://dimitarmalamski.com/)
 
 ---
 
@@ -58,7 +58,7 @@ Open http://localhost:3000
 
 ## 👤 Author
 
-Dimitar Malamski  
+Dimitar Svetoslavov Malamski  
 Software Engineering Student, Eindhoven, Netherlands  
 GitHub: [Here](https://github.com/DimitarMalamski)  
 LinkedIn: [Here](https://www.linkedin.com/in/dimitar-malamski-a00253238/)
